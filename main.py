@@ -25,8 +25,12 @@ async def on_ready():
 async def on_message(message):
     if message.author == bot.user:
         return
-    if "hello" in message.content.lower():
-        await message.add_reaction("👋")
+
+    # React with 👍 ➖ 👎 to every message (except the bot's)
+    await message.add_reaction("👍")
+    await message.add_reaction("➖")
+    await message.add_reaction("👎")
+
     await bot.process_commands(message)
 
 bot.run(TOKEN)
